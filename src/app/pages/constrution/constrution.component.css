@@ -1,0 +1,11 @@
+.textImgConstru{
+    margin-top: 200px;
+    position: relative;
+    font-size: 30px;
+    color: white;
+    z-index: 1;
+}
+.imgConstru{
+    margin-top: -200px;
+    z-index: 0;
+}

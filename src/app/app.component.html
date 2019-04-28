@@ -1,0 +1,57 @@
+
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+   <a class="navbar-brand" [routerLink]="['/home']">
+    Neighbour <i class="fas fa-robot" style="color: red;"></i> Bot  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/constru']">Como funciona</a>
+      </li>
+
+     <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sobre
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/missao']">Missão</a>
+          <a class="dropdown-item" [routerLink]="['/equipes']">Equipe</a>
+          <a class="dropdown-item" [routerLink]="['/parceiros']">Parceiros</a>
+        </div>
+      </li>-->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-light my-2 mx-2 my-sm-0" [routerLink]="['/constru']" >Login</button>
+      <button class="btn btn-light mx-2 my-sm-0" [routerLink]="['/register']">Cadastre-se</button>
+    </form>
+  </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<footer class="footer sticky-footer">
+
+   <!-- Copyright -->
+<div class="container">
+  <div class="footer-copyright text-center py-1"> Projeto desenvolvido durante o Hackathon 2019 por:
+  </div>
+  <div class="footer-copyright text-center py-1"> Ana Carolina, Gabriel, Gustavo, Leonardo e Wallace.
+  </div>
+  <div class="footer-copyright text-center py-1"> © 2019 Copyright | All rights reserved
+  </div>
+</div>
+
+  <!-- Copyright -->
+
+</footer>
+
+
+
+

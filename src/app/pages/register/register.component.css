@@ -1,0 +1,35 @@
+label{
+  font-family: Ubuntu;
+}
+
+.footer{
+  margin-top: 50px;
+  height: 120px;
+  background: darkslategray;
+  color: #c5c3c9;
+  font-size: small;
+}
+
+html, body {
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+}
+
+.backBody{
+    min-height: 100vh;
+    background-image: url("./../../../assets/imgs/sec.png");
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+}
+
+.formCard{
+    max-width: 500px;
+    z-index: 3;
+}
+
+agm-map{
+  width: 100%;
+  height: 100%;
+}

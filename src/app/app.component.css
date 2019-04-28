@@ -1,0 +1,15 @@
+.footer {
+  float:bottom;
+  align-self: end;
+  left: 0;
+  bottom: 0;
+  font-size: small;
+  width: 100%;
+  text-align: center;
+  color: aliceblue;
+  background-color: #444a43
+}
+
+nav{
+  background-image: linear-gradient(to right, black, rgb(53, 52, 52));
+}

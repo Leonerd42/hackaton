@@ -1,0 +1,116 @@
+<div class="backBody">
+  <div class="container">
+    <div class="row" >
+      <div class="col">
+        <agm-map [streetViewControl]="false" [zoom]="13" [latitude]="lat" [longitude]="lng">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+      <div class="col" *ngIf="!verify">
+          <div class="card mt-5 formCard" >
+              <div class="card-body">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="form-row">
+                      <div class="form-group col">
+                        <label for="nome"> *Nome </label>
+                        <input type="text" formControlName="nome" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" />
+                        <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+                          <div *ngIf="f.nome.errors.required">Nome é obrigtório</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-2">
+                        <label for=""> *DDD </label>
+                        <input type="number" formControlName="ddd" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ddd.errors }" />
+                        <div *ngIf="submitted && f.ddd.errors" class="invalid-feedback">
+                          <div *ngIf="f.ddd.errors.required">DDD é obrigtório</div>
+                        </div>
+                      </div>
+                      <div class="form-group col-10">
+                        <label> *Telefone </label>
+                        <input type="number" formControlName="telefone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.telefone.errors }" />
+                        <div *ngIf="submitted && f.telefone.errors" class="invalid-feedback">
+                          <div *ngIf="f.telefone.errors.required">Telefone é obrigtório</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col">
+                        <label> *CEP </label>
+                        <input type="number" formControlName="cep" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cep.errors }" />
+                        <div *ngIf="submitted && f.cep.errors" class="invalid-feedback">
+                          <div *ngIf="f.cep.errors.required">CEP é obrigtório</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-8">
+                        <label> *Endereço </label>
+                        <input type="text" formControlName="end" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.end.errors }" />
+                        <div *ngIf="submitted && f.end.errors" class="invalid-feedback">
+                          <div *ngIf="f.end.errors.required">Endereço é obrigtório</div>
+                        </div>
+                      </div>
+                      <div class="form-group col-4">
+                        <label for=""> *Numero </label>
+                        <input type="number" formControlName="num" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.num.errors }" />
+                        <div *ngIf="submitted && f.num.errors" class="invalid-feedback">
+                          <div *ngIf="f.num.errors.required">Número é obrigtório</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col">
+                        <label for=""> Complemento </label>
+                        <input type="text" formControlName="comp" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col">
+                          <label for=""> *Cidade </label>
+                          <input type="text" formControlName="cidade" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cidade.errors }" />
+                        <div *ngIf="submitted && f.cidade.errors" class="invalid-feedback">
+                          <div *ngIf="f.cidade.errors.required">Cidade é obrigtório</div>
+                        </div>
+                      </div>
+                      <div class="form-group col">
+                        <label for=""> *UF </label>
+                        <input type="text" formControlName="estado" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }" />
+                        <div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+                          <div *ngIf="f.estado.errors.required">UF é obrigtório</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <button class="btn btn-dark btn-block mt-2" type="submit" > Enviar</button>
+                        <p class="text-muted"> Preencha os campos obrigatorios </p>
+                        <p class="text-muted"> * Campos obrigatorios </p>
+                      </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+      </div>
+      <div class="col" *ngIf="verify">
+          <div class="card mx-auto mt-5 formCard" >
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <label for=""> Digite o código: </label>
+                    <input type="text" class="form-control" [(ngModel)]="verifiedText">
+                    <p class="text-mutex"> Caso não tenha recebido a mensagem <a href=""> clique aqui</a> </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-dark btn-block" (click)="SendConfirmationText()"> Enviar </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
