@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ConstrutionComponent } from './pages/constrution/constrution.component';
 import { AgmCoreModule } from '@agm/core';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [

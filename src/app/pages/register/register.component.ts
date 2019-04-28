@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Usuario } from 'src/app/models/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,14 +15,17 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   verify = false;
   usuario: Usuario;
-  verifiedText: string;
+  verifiedText: number;
 
   /** Google maps  */
   title: string = 'My first AGM project';
   lat: number = -22.344374;
   lng: number =  -49.029391;
 
-  constructor(private formBuilder: FormBuilder, private httpClient: HttpClient) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private httpClient: HttpClient,
+    private router: Router) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -74,24 +78,17 @@ export class RegisterComponent implements OnInit {
 
   SendConfirmationText () {
       console.log(`Chave digitada: ${this.verifiedText}`);
-
-      // Envia texto de confirmação 
-      try {
-
-      } catch (e) {
+      this.usuario = this.parseFormToDto();
+      this.usuario.seguranca = this.verifiedText;
+      this.httpClient.post(`${this.apiUrl}/usuario`, this.usuario).subscribe(res => {
         
-      }
-  }
-
-  WaitRequest() {
-    /*const aux = true;
-    return new Promise( function(resolve, reject) {
-        if (aux) {
-          resolve('okay');
-        } else {
-          reject('not okay');
-        }
-    });*/
+        setTimeout(() => {
+          this.verify = !this.verify;
+        }, 1000);
+        console.log(res)
+      }, err => console.log(err));
+      // Envia texto de confirmação 
+      this.router.navigate(['/'])
   }
 
 }
